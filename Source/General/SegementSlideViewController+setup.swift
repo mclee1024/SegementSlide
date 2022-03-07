@@ -193,7 +193,7 @@ extension SegementSlideViewController {
             let childScrollView = contentViewController.scrollView else {
             return
         }
-        childScrollView.contentOffset.y = 0
+        childScrollView.contentOffset.y = -childScrollView.contentInset.top
     }
     
     internal func resetOtherCachedChildViewControllerContentOffsetY() {
@@ -211,7 +211,7 @@ extension SegementSlideViewController {
             }
             cachedChildViewControllerIndex.remove(index)
             childScrollView.forceStopScroll()
-            childScrollView.forceFixedContentOffsetY = 0
+            childScrollView.forceFixedContentOffsetY = -childScrollView.contentInset.top
         }
     }
     
