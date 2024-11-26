@@ -12,7 +12,8 @@ public class SegementSlideHeaderView: UIView {
     
     private weak var lastHeaderView: UIView?
     private weak var contentView: SegementSlideContentView?
-    
+    public var shouldAlwaysReturnHitTestView = false
+
     internal override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -46,7 +47,7 @@ public class SegementSlideHeaderView: UIView {
     
     public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let view = super.hitTest(point, with: event)
-        guard let contentView = contentView else {
+        guard let contentView = contentView, shouldAlwaysReturnHitTestView == false else {
             return view
         }
         guard let selectedIndex = contentView.selectedIndex,
