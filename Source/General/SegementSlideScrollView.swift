@@ -27,5 +27,8 @@ public class SegementSlideScrollView: UIScrollView, UIGestureRecognizerDelegate 
         }
         return true
     }
-    
+
+    public func addOtherGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
+        otherGestureRecognizers?.append(gestureRecognizer)
+    }
 }
